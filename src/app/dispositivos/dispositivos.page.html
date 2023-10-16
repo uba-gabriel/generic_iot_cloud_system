@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <strong>Devices</strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary">
+  <ion-list lines="full">
+    <ion-item class="header">
+      <!-- Esto es el encabezado -->
+      <ion-grid>
+        <ion-row class="header-row">
+          <ion-col size="2"
+            ><h3><strong>Name</strong></h3></ion-col
+          >
+          <ion-col size="2"
+            ><h3><strong>Location</strong></h3></ion-col
+          >
+          <ion-col size="2"
+            ><h3><strong>Metrics</strong></h3></ion-col
+          >
+          <ion-col size="2"
+            ><h3><strong>Chart</strong></h3></ion-col
+          >
+          <ion-col size="2"
+            ><h3><strong>Status</strong></h3></ion-col
+          >
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <!-- Esto son los datos de cada dispositivo -->
+    <ion-item *ngFor="let dispositivo of dispositivos" class="disp">
+      <ion-grid>
+        <ion-row class="data-row">
+          <ion-col size="2">
+            <p class="descripcion">{{ dispositivo.descripcion }}</p>
+          </ion-col>
+          <ion-col size="2" class="ubicacion-col">
+            <ion-icon name="location-outline"></ion-icon>
+            <p class="ubicacion">{{ dispositivo.ubicacion }}</p>
+          </ion-col>
+          <ion-col size="2">
+            <ion-button
+              appSombreado
+              shape="round"
+              fill="clear"
+              expand="full"
+              routerLink="mediciones/{{ dispositivo.dev_id }}"
+            >
+              <ion-icon name="reader-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="2">
+            <ion-button
+              appSombreado
+              shape="round"
+              fill="clear"
+              expand="full"
+              routerLink="logs/{{ dispositivo.dev_id }}"
+            >
+              <ion-icon name="analytics-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="2">
+            <ion-button
+              appSombreado
+              shape="round"
+              fill="clear"
+              expand="full"
+              routerLink="graficodetalles/{{ dispositivo.dev_id }}"
+            >
+              <ion-icon name="thermometer-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<style>
+  .header-row {
+    align-items: center;
+  }
+
+  .data-row ion-col h3 {
+    text-align: center;
+  }
+</style>

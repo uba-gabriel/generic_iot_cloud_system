@@ -1,0 +1,18 @@
+/* Estilo para las duplas "Date" y "Temp" */
+.dupla {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px; /* Espaciado opcional */
+  border-bottom: 1px solid #ccc; /* Barra divisoria entre las duplas */
+}
+
+/* Estilo para la columna "Date" */
+.date {
+  width: 50%; /* Ancho de la columna "Date" */
+}
+
+/* Estilo para la columna "Temp" */
+.temp {
+  width: 50%; /* Ancho de la columna "Temp" */
+}

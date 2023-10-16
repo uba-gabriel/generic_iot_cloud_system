@@ -1,0 +1,21 @@
+.descripcion {
+  font-size: 14px; /* Establece el tamaño de la letra deseado para la descripción */
+}
+
+.ubicacion-col {
+  display: flex;
+  align-items: center; /* Centra verticalmente los elementos */
+}
+
+.ubicacion {
+  margin-left: 5px; /* Agrega un margen izquierdo para separar el icono y el texto */
+  font-size: 12px; /* Establece el tamaño de la letra deseado para la ubicación */
+}
+
+.ion-row {
+  align-items: center;
+}
+
+.ion-col h3 {
+  text-align: center;
+}

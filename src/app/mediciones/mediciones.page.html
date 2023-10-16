@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+<ion-toolbar>
+  <ion-title>Metrics</ion-title>
+</ion-toolbar>
+</ion-header>
+
+<ion-header>
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button defaultHref="/dispositivos"></ion-back-button> 
+  </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content color="primary">
+
+<ion-list lines="full">
+  <ion-item class="header">
+  <!-- esto es el encabezado -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="5"><h3><strong>Device ID: {{dev_id}}</strong></h3></ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+<!-- esto es los datos de cada dispositivo (mostrar el lote actual) -->
+<ion-item *ngFor="let medicion of mediciones.slice((batchCount - 1) * batchSize, batchCount * batchSize)" class="disp">
+  <ion-grid>
+    <ion-row class="dupla">
+      <ion-col size="5" class="date">
+        <h2 style="font-size: 14px;"><strong>Date:</strong></h2>
+        <h3 style="font-size: 14px;">{{ medicion.timestamp.value | dateformat }}</h3>
+        <!-- Uso de Pipe para formato de fecha -->
+      </ion-col>
+      <ion-col size="5" class="temp">
+        <h2 style="font-size: 14px;"><strong>Temp:</strong></h2>
+        <h3 style="font-size: 14px;">{{ medicion.temperatura | number: '1.1-2' }}</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>
+
+<!-- Botón para cargar el lote anterior -->
+<ion-button (click)="cargarLoteAnterior()" *ngIf="batchCount > 1">Back</ion-button>
+
+<!-- Botón para cargar el siguiente lote -->
+<ion-button (click)="cargarSiguienteLote()" *ngIf="mediciones.length > batchCount * batchSize">Next</ion-button>
+</ion-list>
+</ion-content>
